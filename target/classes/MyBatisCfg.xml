@@ -4,7 +4,7 @@
     <typeAliases>
         <package name="com.java"/>
     </typeAliases>
-    <environments default="mysql">
+<!--     <environments default="mysql">
         <environment id="mysql">
             <transactionManager type="JDBC"></transactionManager>
             <dataSource type="POOLED">
@@ -17,6 +17,6 @@
     </environments>
     <mappers>
         <mapper resource="com/java/main/mapper/mapper.xml"/>
-        <!-- <package name="com.java.main.mapper"/> -->
-    </mappers>
+        <package name="com.java.main.mapper"/>
+    </mappers> -->
 </configuration>

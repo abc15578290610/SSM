@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
 import com.java.main.dao.userDAO;
+@SuppressWarnings("unused")
 public class TestUsers {
 	@Test
     public void getUserTest() {
@@ -24,9 +25,11 @@ public class TestUsers {
         System.out.println("输出"+goods.toString());
         for(int i =0; i < goods.size(); i++){
             System.out.println("List第" + i + "位是：" + goods.get(i).getName());
+            
          }
 	    } finally {
 	        session.close();
 	    }
     }
 }
+
