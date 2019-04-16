@@ -3,6 +3,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
 <html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta content="telephone=no" name="format-detection">
+<meta content="-1" http-equiv="Expires">
+<meta content="no-cache" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="Pragma">
+<meta name="theme-color" content="#ffffff">
+<meta name="full-screen" content="true" />
+<meta name="screen-orientation" content="portrait"/>
+<meta name="x5-fullscreen" content="true" />
+<meta name="360-fullscreen" content="true" />
+<link rel="stylesheet" href="https://cdn.easytui.com.cn/css/swiper.min.css">
 <head>
 	<title>Home</title>
 </head>
