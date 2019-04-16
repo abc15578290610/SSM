@@ -8,5 +8,7 @@ public interface userDAO {
 	/**
      * 获得用户信息
      */
-    public List<User> getUser();
+    public List<User> getUsers();
+    
+    public User getUser(String name);
 }

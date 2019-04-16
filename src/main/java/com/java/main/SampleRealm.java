@@ -12,10 +12,18 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.SimplePrincipalCollection;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.java.main.service.userService;
 
 public class SampleRealm extends AuthorizingRealm {
-	
+	private static final Logger logger = LoggerFactory.getLogger(SampleRealm.class);
+
 	Map<String, String> user = new HashMap<String, String>(16);
+	@Autowired
+	userService userService;
 	public SampleRealm() {
 		super();
 		super.setName("SampleRealm");
@@ -24,7 +32,6 @@ public class SampleRealm extends AuthorizingRealm {
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection arg0) {
 		//授权
-		System.out.println("处理授权");
 		return null;
 	}
 
@@ -32,12 +39,16 @@ public class SampleRealm extends AuthorizingRealm {
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken arg0) throws AuthenticationException {
 		//获取认证信息
 		String username = (String) arg0.getPrincipal();
-		System.out.println("主体输出"+username);
 		/* 1、获取用户输入的用户名
 		 * 2、通过用户名从数据库中获取真实的密码
-		 * 3、返回正式的用户名、用户密码
+		 * 3、返回真实的用户密码
 		 * */
-		SimpleAuthenticationInfo AuthenticationInfo = new SimpleAuthenticationInfo("admin","admin","SampleRealm");
+		User userInfo = userService.getUserInfo(username);
+		if (userInfo.getPassword().length()<=0) {
+			
+		}
+		logger.info(username+"------"+userInfo.getPassword());
+		SimpleAuthenticationInfo AuthenticationInfo = new SimpleAuthenticationInfo(username,userInfo.getPassword(),"SampleRealm");
 		
 		return AuthenticationInfo;
 	}

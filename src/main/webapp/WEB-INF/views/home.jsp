@@ -7,15 +7,10 @@
 	<title>Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-
-<P>  The time on the server is ${serverTime}. </P>
-
+<span class='header-title'>某某平台</span>
 <form action="/subLogin" method="post">
-		<input type="text" value="admin">
-		<input type="password">
+		<input name='name' type="text" value="admin">
+		<input name='password' type="password">
 		<input type="submit" value="提交">
 </form>
 </body>
