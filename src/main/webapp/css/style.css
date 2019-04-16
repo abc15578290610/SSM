@@ -1,0 +1,68 @@
+body,
+div,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+input,
+select,
+button,
+textarea,
+table,
+th,
+td,
+a,
+span,
+canvas {
+  margin: 0;
+  padding: 0;
+  background: no-repeat center / contain;
+  cursor: default;
+}
+body {
+  display: block;
+  position: relative;
+  margin: auto;
+  max-width: 7.5rem;
+  min-width: 3.2rem;
+  font-size: 0.16rem;
+  font-family: "Microsoft Yahei", "Arial", sans-serif;
+}
+.header-content{
+    width: 7.5rem;
+    height: 100%;
+    background-color:#333;
+}
+.z-form{
+  top: 1rem;
+  left: 1rem;
+  position: absolute;
+  width:5rem;
+  height:4rem;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.z-btn{
+  display: block;
+  width:2rem;
+  height:0.64rem;
+  background-color: #84b8d0;
+  border-radius: 5px;
+}
+.z-input{
+  display: block;
+  width:2rem;
+  height:0.64rem;
+  border-radius: 5px;
+}

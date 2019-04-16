@@ -16,16 +16,30 @@
 <meta name="screen-orientation" content="portrait"/>
 <meta name="x5-fullscreen" content="true" />
 <meta name="360-fullscreen" content="true" />
-<link rel="stylesheet" href="https://cdn.easytui.com.cn/css/swiper.min.css">
+<link rel="stylesheet" href="./css/style.css">
+<script>
+    _resize();
+    window.addEventListener('resize', _resize, false);
+    function _resize() {
+        var html = document.documentElement;
+        var windowWidth = html.clientWidth;
+        if(windowWidth > 750){
+            windowWidth = 750;
+        }
+        html.style.fontSize = windowWidth / 7.5 + 'px';
+    }
+</script>
 <head>
 	<title>Home</title>
 </head>
 <body>
-<span class='header-title'>某某平台</span>
-<form action="/subLogin" method="post">
-		<input name='name' type="text" value="admin">
-		<input name='password' type="password">
-		<input type="submit" value="提交">
-</form>
+<div class='header-content'>
+	<span class='header-title'>平台</span>
+	<form class='z-form' action="/subLogin" method="post">
+			<input class='z-input' name='name' type="text" value="admin">
+			<input class='z-input' name='password' type="password">
+			<input class='z-btn' type="submit" value="提交">
+	</form>
+</div>
 </body>
 </html>
