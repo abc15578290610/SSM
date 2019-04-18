@@ -16,7 +16,7 @@
 <meta name="screen-orientation" content="portrait"/>
 <meta name="x5-fullscreen" content="true" />
 <meta name="360-fullscreen" content="true" />
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/style.css?Version=<%=(new java.util.Date()).toLocaleString()+1%>">
 <script>
     _resize();
     window.addEventListener('resize', _resize, false);
@@ -30,15 +30,15 @@
     }
 </script>
 <head>
-	<title>Home</title>
+	<title></title>
 </head>
 <body>
+<span></span>
 <div class='header-content'>
-	<span class='header-title'>平台</span>
 	<form class='z-form' action="/subLogin" method="post">
 			<input class='z-input' name='name' type="text" value="admin">
 			<input class='z-input' name='password' type="password">
-			<input class='z-btn' type="submit" value="提交">
+			<button class='z-btn' type="submit">提交</button>
 	</form>
 </div>
 </body>

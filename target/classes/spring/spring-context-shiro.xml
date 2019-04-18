@@ -11,7 +11,7 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<description>== Shiro Components ==</description>
-    
+    <context:component-scan base-package="com.java.main"/>
 	<!-- 安全管理器 -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="sampleRealm"/>
