@@ -20,7 +20,7 @@
 	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
 	    <property name="staticMethod" value="org.apache.shiro.SecurityUtils.setSecurityManager"/>
 	    <property name="arguments" ref="securityManager"/>
-	</bean> 
+	</bean>
 	<!-- 授权 认证 -->
 	<bean id="sampleRealm" class="com.java.main.SampleRealm" ></bean>
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">

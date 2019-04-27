@@ -11,4 +11,9 @@
      <select id="getUser" resultType="User">
         select * from user WHERE userName = #{name}
     </select>
+    
+     <!--插入指定用户信息 -->
+    <insert id="InsertUser">
+	  insert into user (userName,password) values (#{0},#{1})
+	</insert>
 </mapper>

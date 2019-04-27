@@ -12,6 +12,7 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.SimplePrincipalCollection;
+import org.apache.shiro.util.ByteSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,7 @@ public class SampleRealm extends AuthorizingRealm {
 		if (userInfo.getPassword().length()<=0) {
 			
 		}
+		ByteSource credentialsSalt = ByteSource.Util.bytes(username);
 		logger.info(username+"------"+userInfo.getPassword());
 		SimpleAuthenticationInfo AuthenticationInfo = new SimpleAuthenticationInfo(username,userInfo.getPassword(),"SampleRealm");
 		

@@ -35,11 +35,29 @@
 <body>
 <span></span>
 <div class='header-content'>
-	<form class='z-form' action="/subLogin" method="post">
+<a id='open'>切换</a>
+	<form id=login class='z-form' action="/subLogin" method="post">
 			<input class='z-input' name='name' type="text" value="admin">
 			<input class='z-input' name='password' type="password">
 			<button class='z-btn' type="submit">提交</button>
 	</form>
+	<form id=regist class='z-form' action="/regist" method="post">
+			<input class='z-input' name='name' type="text" value="admin">
+			<input class='z-input' name='password' type="password">
+			<button class='z-btn' type="submit">注册</button>
+	</form>
 </div>
 </body>
+<script type="text/javascript">
+document.getElementById('regist').style.display='none'
+	document.getElementById('open').addEventListener('click',function(){
+        if(document.getElementById('login').style.display=='inline-block'){
+            document.getElementById('login').style.display='none';
+            document.getElementById('regist').style.display='inline-block'
+        }else{
+            document.getElementById('login').style.display='inline-block';
+            document.getElementById('regist').style.display='none'
+        }
+    })
+</script>
 </html>

@@ -29,4 +29,9 @@ public class userService {
 		User user = userDAO.getUser(name);
 		return user;
 	}
+	public String AddUser(String name,String password) {
+		logger.info("新增用户"+name+"----密码"+password);
+		userDAO.InsertUser(name,password);
+		return "插入成功";
+	}
 }
