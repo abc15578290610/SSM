@@ -30,6 +30,13 @@ canvas {
   background: no-repeat center / contain;
   cursor: default;
 }
+#open{
+	position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 24px;
+}
 body {
   display: block;
   position: relative;

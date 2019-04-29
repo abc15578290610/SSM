@@ -9,10 +9,8 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
-	
 	<!--1 引入属性文件，在配置中占位使用 -->
     <context:property-placeholder location="classpath:db.properties" />
-
     <!--2 配置C3P0数据源 -->
     <bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
         destroy-method="close">

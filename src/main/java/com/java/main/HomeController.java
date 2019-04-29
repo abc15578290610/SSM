@@ -2,7 +2,9 @@ package com.java.main;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -26,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.java.main.service.userService;
 
 /**
@@ -60,25 +63,34 @@ public class HomeController {
 	
 	@RequestMapping(value = "/subLogin", method = RequestMethod.POST,produces="application/json;charset=utf-8")
 	@ResponseBody
-	public String login(@ModelAttribute ( "name" ) String name,@ModelAttribute ( "password" ) String password) {
+	public Map<String, String> login(@ModelAttribute ( "name" ) String name,@ModelAttribute ( "password" ) String password) {
+		Map<String, String> map = new HashMap<>() ;
 		Subject subject = SecurityUtils.getSubject();
 		UsernamePasswordToken token = new UsernamePasswordToken(name,password);
 		try {
 			logger.info("尝试登录1"+(count++));
 			subject.login(token);
 		} catch  ( UnknownAccountException uae ) {
-			return "用户不存在";
+			map.put("msg","用户不存在");
+			logger.info(map.get("msg"));
+			return map;
 		} catch  ( IncorrectCredentialsException ice ) {
-			return "凭证不正确";
+			map.put("msg","密码错误");
+			return map;
 		} catch  ( LockedAccountException lae ) {
-			return "账户被冻结";
+			map.put("msg","当前账户被冻结");
+			return map;
 		} catch  ( ExcessiveAttemptsException eae ) {
-			return "尝试次数过多";
+			map.put("msg","尝试次数过多，请稍后再试");
+			return map;
 		}
 		catch ( AuthenticationException ae ) {
-			return "身份验证失败";
+			map.put("msg", "身份校验失败");
+			return map;
 		}
-		return "登录成功";
+		map.put("msg", "登录成功");
+		logger.info(map.get("msg"));
+		return map;
 	}
 	
 	@RequestMapping(value = "/regist", method = RequestMethod.POST,produces="application/json;charset=utf-8")

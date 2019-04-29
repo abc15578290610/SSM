@@ -8,6 +8,7 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
@@ -45,6 +46,7 @@ public class SampleRealm extends AuthorizingRealm {
 		 * 3、返回真实的用户密码
 		 * */
 		User userInfo = userService.getUserInfo(username);
+		if(userInfo == null){ throw new UnknownAccountException();};//用户不存在，抛出UnknownAccountException异常
 		if (userInfo.getPassword().length()<=0) {
 			
 		}
