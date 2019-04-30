@@ -52,7 +52,8 @@ public class SampleRealm extends AuthorizingRealm {
 		}
 		ByteSource credentialsSalt = ByteSource.Util.bytes(username);
 		logger.info(username+"------"+userInfo.getPassword());
-		SimpleAuthenticationInfo AuthenticationInfo = new SimpleAuthenticationInfo(username,userInfo.getPassword(),"SampleRealm");
+//		SimpleAuthenticationInfo AuthenticationInfo = new SimpleAuthenticationInfo(username,userInfo.getPassword(),"SampleRealm");
+		SimpleAuthenticationInfo AuthenticationInfo = new SimpleAuthenticationInfo(username,userInfo.getPassword(),credentialsSalt,"SampleRealm");
 		
 		return AuthenticationInfo;
 	}

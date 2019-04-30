@@ -50,6 +50,7 @@
 </body>
 <script src="../../js/jquery.min.js"></script>
 <script src="../../js/ajaxUntil.js"></script>
+<script src="../../js/md5.js"></script>
 <script type="text/javascript">
 $(function(){
     $('#login').click(function(){
@@ -57,7 +58,7 @@ $(function(){
         var name=$("#loginForm > input:nth-child(1)").val();
         
         var password=$("#loginForm > input:nth-child(2)").val();
-        ajaxUntil.sendPost('/subLogin',{'name':name,'password':password},function(res){
+        ajaxUntil.sendPost('/subLogin',{'name':name,'password':hex_md5(password)},function(res){
             console.log(res);
         })
     })
@@ -66,7 +67,7 @@ $(function(){
         var name=$("#registForm > input:nth-child(1)").val();
         
         var password=$("#registForm > input:nth-child(2)").val();
-        ajaxUntil.sendPost('/regist',{'name':name,'password':password},function(res){
+        ajaxUntil.sendPost('/regist',{'name':name,'password':hex_md5(password)},function(res){
             console.log(res);
         })
     })
