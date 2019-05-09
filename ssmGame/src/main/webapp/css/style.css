@@ -1,0 +1,85 @@
+body,
+div,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+input,
+select,
+button,
+textarea,
+table,
+th,
+td,
+a,
+span,
+canvas {
+  margin: 0;
+  padding: 0;
+  background: no-repeat center / contain;
+  cursor: default;
+}
+#open{
+	position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 24px;
+}
+body {
+  display: block;
+  position: relative;
+  margin: auto;
+  max-width: 7.5rem;
+  min-width: 3.2rem;
+  font-size: 0.16rem;
+  font-family: "Microsoft Yahei", "Arial", sans-serif;
+}
+.header-content{
+    width: 7.5rem;
+    height: 100%;
+    background-color:#333;
+    text-align: center;
+}
+.z-form{
+  width:5rem;
+  background-color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+  margin-top: 3rem;
+}
+.z-form >input{
+  display: inline-block;
+  padding: 15px 5px;
+  width:4.5rem;
+  border: none;
+  text-align: left;
+  color: #333;
+  background-color: rgb(248, 242, 242);
+  margin-top: 20px;
+}
+.z-btn{
+  background-color: #FF9800;
+  border-radius: 3px;
+  box-shadow: 1px 5px 20px -5px #333;
+  padding: 10px 5px;
+  width:4.5rem;
+  border: none;
+  text-align: center;
+  color: #333;
+  margin-top: 20px;
+  font-size: 18px;
+  margin-bottom: 20px;
+}

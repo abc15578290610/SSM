@@ -50,8 +50,6 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		
-		logger.info("»¶Ó­¼ÓÈë.", locale);
 		regist.save();
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
@@ -68,27 +66,27 @@ public class HomeController {
 		Subject subject = SecurityUtils.getSubject();
 		UsernamePasswordToken token = new UsernamePasswordToken(name,password);
 		try {
-			logger.info("³¢ÊÔµÇÂ¼1"+(count++));
+			logger.info("ç™»å½•å°è¯•"+(count++));
 			subject.login(token);
 		} catch  ( UnknownAccountException uae ) {
-			map.put("msg","ÓÃ»§²»´æÔÚ");
+			map.put("msg","ç”¨æˆ·ä¸å­˜åœ¨");
 			logger.info(map.get("msg"));
 			return map;
 		} catch  ( IncorrectCredentialsException ice ) {
-			map.put("msg","ÃÜÂë´íÎó");
+			map.put("msg","å¯†ç ä¸æ­£ç¡®");
 			return map;
 		} catch  ( LockedAccountException lae ) {
-			map.put("msg","µ±Ç°ÕË»§±»¶³½á");
+			map.put("msg","è´¦æˆ·å·²å†»ç»“");
 			return map;
 		} catch  ( ExcessiveAttemptsException eae ) {
-			map.put("msg","³¢ÊÔ´ÎÊı¹ı¶à£¬ÇëÉÔºóÔÙÊÔ");
+			map.put("msg","å°è¯•æ¬¡æ•°è¿‡å¤š");
 			return map;
 		}
 		catch ( AuthenticationException ae ) {
-			map.put("msg", "Éí·İĞ£ÑéÊ§°Ü");
+			map.put("msg", "èº«ä»½éªŒè¯å¤±è´¥");
 			return map;
 		}
-		map.put("msg", "µÇÂ¼³É¹¦");
+		map.put("msg", "æ­å–œç™»å½•æˆåŠŸ");
 		logger.info(map.get("msg"));
 		return map;
 	}
@@ -97,6 +95,6 @@ public class HomeController {
 	@ResponseBody
 	public String rigist(@ModelAttribute ( "name" ) String name,@ModelAttribute ( "password" ) String password) {
 		userService.AddUser(name, password);
-		return "×¢²á³É¹¦";
+		return "æ³¨å†ŒæˆåŠŸ";
 	}
 }
